@@ -1,27 +1,30 @@
 import 'package:equatable/equatable.dart';
 
+import '../../domain/entities/address.dart';
+
 class CepCubitState extends Equatable {
   final bool isLoading;
-  final int? inputUser;
+  final Address address;
 
   const CepCubitState({
     this.isLoading = false,
-    this.inputUser = 0,
+    this.address = const Address(),
   });
 
   CepCubitState copyWith({
     bool? isLoading,
-    int? inputUser,
+    Address? address,
   }) {
     return CepCubitState(
       isLoading: isLoading ?? this.isLoading,
-      inputUser: inputUser,
+      address: address ?? this.address,
     );
+    
   }
 
   @override
   List<Object?> get props => [
         isLoading,
-        inputUser,
+        address,
       ];
 }

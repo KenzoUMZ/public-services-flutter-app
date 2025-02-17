@@ -1,35 +1,35 @@
-class Cep {
-    String cep;
-    String logradouro;
-    String complemento;
-    String unidade;
-    String bairro;
-    String localidade;
-    String uf;
-    String estado;
-    String regiao;
-    String ibge;
-    String gia;
-    String ddd;
-    String siafi;
+class Address {
+    final String? cep;
+    final String? logradouro;
+    final String? complemento;
+    final String? unidade;
+    final String? bairro;
+    final String? localidade;
+    final String? uf;
+    final String? estado;
+    final String? regiao;
+    final String? ibge;
+    final String? gia;
+    final String? ddd;
+    final String? siafi;
 
-    Cep({
-        required this.cep,
-        required this.logradouro,
-        required this.complemento,
-        required this.unidade,
-        required this.bairro,
-        required this.localidade,
-        required this.uf,
-        required this.estado,
-        required this.regiao,
-        required this.ibge,
-        required this.gia,
-        required this.ddd,
-        required this.siafi,
+    const Address({
+      this.cep,
+      this.logradouro,
+      this.complemento,
+      this.unidade,
+      this.bairro,
+      this.localidade,
+      this.uf,
+      this.estado,
+      this.regiao,
+      this.ibge,
+      this.gia,
+      this.ddd,
+      this.siafi,
     });
 
-    factory Cep.fromJson(Map<String, dynamic> json) => Cep(
+    factory Address.fromJson(Map<String, dynamic> json) => Address(
         cep: json["cep"],
         logradouro: json["logradouro"],
         complemento: json["complemento"],
