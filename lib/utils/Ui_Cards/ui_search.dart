@@ -32,9 +32,6 @@ class UiCardSearchBar extends StatelessWidget {
               return ListTile(
                 title: Text(item),
                 onTap: () {
-                  // setState(() {
-                  //   controller.closeView(item);
-                  // });
                 },
               );
             },
