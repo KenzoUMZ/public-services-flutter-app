@@ -11,7 +11,6 @@ class CepCubit extends Cubit<CepCubitState> {
     required String cep,
   }) async {
     Address address = await fetchSingleCep(cep: cep);
-
     emit(
       state.copyWith(
         address: address,
@@ -19,4 +18,3 @@ class CepCubit extends Cubit<CepCubitState> {
     );
   }
 }
-

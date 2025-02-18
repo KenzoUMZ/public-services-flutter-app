@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:public_services_app/pages/cubit/cep_cubit.dart';
+import '../cubit/cep_cubit.dart';
+
+import 'cep_details.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -15,7 +17,7 @@ class _SearchPageState extends State<SearchPage> {
   @override
   void initState() {
     _cubit = CepCubit();
-    cepController = TextEditingController(text: '01001000');
+    cepController = TextEditingController(text: '');
     super.initState();
   }
 
@@ -38,10 +40,31 @@ class _SearchPageState extends State<SearchPage> {
                   ),
                 ),
                 ElevatedButton(
+                  child: const Text('Find Cep'),
                   onPressed: () {
                     _cubit.findCep(cep: cepController.text);
+                    showModalBottomSheet<void>(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return SizedBox(
+                          height: 400,
+                          child: Center(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                CepDetails(addrescep: cepController.text),
+                                ElevatedButton(
+                                  child: const Text('Find a new Cep'),
+                                  onPressed: () => Navigator.pop(context),
+                                )
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    );
                   },
-                  child: Text('Find Cep'),
                 ),
               ],
             ),
